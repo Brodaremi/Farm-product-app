@@ -8,8 +8,9 @@
 </head>
 <body>
     
-    <h1>Add a Product</h1>
-    <form action="/products" method="POST">
+    <h1><%= farm.name %> </h1>
+    <h2>Add a Product</h2>
+    <form action="/farms/<%= farm._id %>/products" method="POST">
         <label for="name">Product Name</label>
         <input type="text" name="name" id="name" placeholder="Product Name">
         <label for="price">Product Price (Unit)</label>
@@ -22,6 +23,7 @@
         </select>
         <button type="submit">Submit</button>
     </form>
+    <a href="/farms/<%= farm._id %>">Back to Farm</a>
 
     <a href="/products">Cancel</a>
 
