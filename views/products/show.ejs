@@ -17,9 +17,10 @@
 
     <a href="/products">All Products</a>
     <a href="/products/<%= foundProduct._id %>/edit">Edit product</a>
-    <form action="products/<%= foundProduct.farm._id %>?_method=DELETE" " method="post">
+    
+    <form action="products/<%= foundProduct.farm._id %>?_method=DELETE" method="post">
     <button>Delete product</button>
-</form>
+    </form>
 
 
 </body>

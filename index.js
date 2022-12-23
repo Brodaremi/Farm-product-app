@@ -77,7 +77,7 @@ app.delete("/farms/:id", async (req, res) => {
 
 
 //FOR PRODUCTS
-const categories = ["fruits", "vegetable", "diary"];
+const categories = ["fruits", "vegetable", "diary", "meat"];
 
 app.get("/products", async (req, res) => {
     const {categories} = req.query;
@@ -104,6 +104,7 @@ app.post("/products", async (req, res) => {
 app.get("/products/:id", async (req, res) => {
     const {id} = req.params;
     const foundProduct = await Product.findById(id).populate('farm', 'name');
+    console.log(foundProduct);
     res.render("products/show", {foundProduct});
 })
 app.get("/products/:id/edit", async (req, res) => {
@@ -119,7 +120,9 @@ app.put("products/:id", async (req, res) => {
 
 app.delete("product/:id", async (req, res) =>{
     const {id} = req.params;
+    console.log(req.params);
     const deletedProduct = await Product.findByIdAndDelete(id);
+
     res.redirect("/products")
 })
 
